@@ -4,7 +4,12 @@
 
 以下为游戏效果展示，欢迎大家在简书下方评论完善游戏效果，谢谢！
 
-<iframe height=668 width=376 src="http://player.youku.com/embed/XMzYzMjU5OTMxNg">
+[视频链接](http://v.youku.com/v_show/id_XMzYzMjU5OTMxNg.html?spm=a2h0j.11185381.listitem_page1.5~A)
+
+![image](gameStart.png)
+
+
+
 
 
 
