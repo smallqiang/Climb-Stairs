@@ -1,5 +1,6 @@
 # Climb-Stairs
 爬楼梯小游戏源码，点击屏幕左右控制角色向左边或者右边跳，踩空将掉落万丈深渊游戏结束。
+
 [简书教程](https://www.jianshu.com/p/714dfc52acc3)
 
 [==========中间强行插入广告——五年日记本App请多多支持==========](http://fivediary.club/)
