@@ -27,5 +27,10 @@ cc.Class({
     stairIsUsed: function() {
         var goAction = cc.moveBy(1.0,cc.p(0,-600));
         this.node.runAction(goAction);
+        setTimeout(() => {
+            if (cc.isValid(this.node)) {
+                this.node.destroy();
+            }
+        },1200);
     }
 });

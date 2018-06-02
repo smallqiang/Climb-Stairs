@@ -25,6 +25,7 @@ cc.Class({
         score:0,
 
         stairCount:0,
+        otherStairCount:3000,
 
         moveDuration:0.2,
         moveDuration2:0.1,
@@ -35,6 +36,8 @@ cc.Class({
         preStairX:0,
         preStairY:0,
         continuous:0,
+
+        otherStairs:[cc.Prefab],
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -108,7 +111,8 @@ cc.Class({
     newStair: function() {
         this.stairCount +=1;
         var newStair = cc.instantiate(this.stair);
-        this.nodeView.addChild(newStair);
+        this.nodeView.addChild(newStair,-1);
+
         var randD = cc.random0To1();
 
         var stairPosition = this.stairPosition(randD)
@@ -119,13 +123,47 @@ cc.Class({
     newStairUpToDown: function() {
         this.stairCount +=1;
         var newStair = cc.instantiate(this.stair);
-        this.nodeView.addChild(newStair);
+        this.nodeView.addChild(newStair,-999);
+
         var randD = cc.random0To1();
 
         var stairPosition = this.stairPosition(randD)
         newStair.setPosition(cc.p(stairPosition.x,stairPosition.y+100));
         var goAction = cc.moveTo(this.moveDuration2,stairPosition);
         newStair.runAction(goAction);
+    },
+
+    newOtherStair: function(isLeft,position) {
+        if (this.stairCount == 1) {
+            return;
+        }
+
+        var hasOther = false;
+        var randD = cc.random0To1();
+
+        //生成障碍台阶的概率
+        if (randD <= 0.8) {
+
+        } else {
+            hasOther = true;
+        }
+
+        if (hasOther) {
+            var count = Math.ceil(Math.random() * 2) - 1;
+
+            var newStair = cc.instantiate(this.otherStairs[count]);
+
+            this.otherStairCount--;
+
+            this.nodeView.addChild(newStair,this.otherStairCount);
+
+            //如果生成的台阶在左，那障碍就在右
+            if (isLeft) {
+                newStair.setPosition(this.preStairX+this.stairWidth/2+10,position.y+20);
+            } else {
+                newStair.setPosition(this.preStairX-this.stairWidth/2-10,position.y+20);
+            }
+        }
     },
 
     stairPosition: function(randD) {
@@ -135,7 +173,6 @@ cc.Class({
         if (randD <= 0.5) {
 
         } else {
-
             isLeft = false;
         }
 
@@ -154,8 +191,12 @@ cc.Class({
             randY = this.preStairY + 100;
         }
 
+        var position = cc.p(randX,randY);
+        this.newOtherStair(isLeft,position);
+
         this.preStairX = randX;
         this.preStairY = randY;
-        return cc.p(randX,randY);
+
+        return position;
     },
 });
