@@ -17,10 +17,13 @@ cc.Class({
 
     onLoad () {
         var score = cc.sys.localStorage.getItem("score");
-        this.scoreLabel.string = "最终得分："+score;
+        if (score) {
+            this.scoreLabel.string = "最终得分："+score;
+        }
 
         cc.director.preloadScene("GameScene");
         this.button.on("touchstart",function(){
+            cc.sys.localStorage.removeItem("score");
             cc.director.loadScene("GameScene")
         });
     },

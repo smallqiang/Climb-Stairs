@@ -41,7 +41,7 @@ cc.Class({
             cc.sys.localStorage.setItem("score",this.score);
 
             //获取在Canvas上的分数label来更新分数
-            var scoreLabel = cc.find("Canvas/scoreLabel").getComponent(cc.Label);
+            var scoreLabel = cc.find("Canvas/scoreLabel").getComponent(cc.Label);   //find为查找场景下对应的组件，getComponent为对应的组件类型
             if (scoreLabel) {
                 scoreLabel.string = this.score;
             }
