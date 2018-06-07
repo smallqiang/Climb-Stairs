@@ -31,7 +31,6 @@ cc.Class({
     // update (dt) {},
 
     onCollisionEnter: function (other, self) {
-        cc.log('on collision enter'+other.tag);
         this.isTouched = true;
 
         //tag为0代表碰撞到的是正常的台阶，其他的为障碍
@@ -39,6 +38,8 @@ cc.Class({
             //把分数存储到本地
             this.score++;
             cc.sys.localStorage.setItem("score",this.score);
+
+            var stair = cc.find("Canvas/scoreLabel").getComponent(cc.Label);   //find为查找场景下对应的组件，getComponent为对应的组件类型
 
             //获取在Canvas上的分数label来更新分数
             var scoreLabel = cc.find("Canvas/scoreLabel").getComponent(cc.Label);   //find为查找场景下对应的组件，getComponent为对应的组件类型

@@ -480,8 +480,8 @@
       "x": 0,
       "y": 0
     },
-    "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillStart": 0.5,
+    "_fillRange": 0.5,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -495,7 +495,7 @@
       "__id__": 11
     },
     "_enabled": true,
-    "isTouched": true,
+    "isTouched": false,
     "score": 0
   },
   {
@@ -573,6 +573,7 @@
     },
     "score": 0,
     "stairCount": 0,
+    "otherStairCount": 3000,
     "moveDuration": 0.2,
     "moveDuration2": 0.1,
     "stairWidth": 121,
@@ -587,6 +588,10 @@
       {
         "__uuid__": "77ce1cb5-bb64-4bec-9051-7ece85527443"
       }
-    ]
+    ],
+    "gameIsStart": false,
+    "time": 0,
+    "stairDownSecond": 2,
+    "gameOverSecond": 0.2
   }
 ]

@@ -26,10 +26,13 @@
     "_components": [
       {
         "__id__": 8
+      },
+      {
+        "__id__": 9
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 10
     },
     "_id": "",
     "_opacity": 255,
@@ -268,6 +271,16 @@
       "width": 57,
       "height": 36
     }
+  },
+  {
+    "__type__": "43ed81/iOxDKZ01LwJQfAmX",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "isUsed": false
   },
   {
     "__type__": "cc.PrefabInfo",
